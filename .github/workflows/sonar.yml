@@ -1,0 +1,15 @@
+name: SonarCloud
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ fbd3acdfa4db2f76d3b742f1f2ab26b6202a6164 }}
